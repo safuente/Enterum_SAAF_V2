@@ -49,6 +49,32 @@ function updateTime(elementID,newDate) {
     //setTimeout(updateTime, 5000);
 }
 
+
+$( function() {
+    //Simulación de fechas para fecha de publicación       
+    var dt1 = new Date("Feb 15, 2017 12:00:00");
+    var dt2 = new Date("Feb  15, 2017 11:59:55");
+    var dt3 = new Date("Feb 15, 2017 12:05:00");
+    var dt4 = new Date("Feb 14, 2017 13:00:00");
+    var dt5 = new Date("Feb 13, 2017 13:00:00");
+    var dt6 = new Date("Feb 01, 2017 13:00:00");
+    var dt7 = new Date("Feb 15, 2017 11:59:01");
+    var dt7 = new Date("Feb 15, 2017 11:59:01");
+    var dt8 = new Date("Feb 15, 2017 11:00:05");
+    var dt9 = new Date("Feb 14, 2017 19:00:00");
+    var dt10 = new Date("Feb 12, 2017 12:00:00");
+    var dt11 = new Date("Feb 02, 2017 12:00:00");
+    var ids = $('.publish-date').map(function(index) {
+        var counter = 2;
+        result= updateTime(this.id,getDateFormat(get_difference(dt1, "dt"+counter)));
+        console.log(result)
+        document.getElementById(this.id).innerHTML =result;
+});
+});
+
+
+
+
 $( function() {
     var ids = $('.target').map(function(index) {
         var counter = 0;
@@ -103,31 +129,4 @@ $(document).ready(function() {
     });
 });       
            
-    
- //Simulación de fechas para fecha de publicación       
-var dt1 = new Date("Feb 15, 2017 12:00:00");
-var dt2 = new Date("Feb  15, 2017 11:59:55");
-var dt3 = new Date("Feb 15, 2017 12:05:00");
-var dt4 = new Date("Feb 14, 2017 13:00:00");
-var dt5 = new Date("Feb 13, 2017 13:00:00");
-var dt6 = new Date("Feb 01, 2017 13:00:00");
-var dt7 = new Date("Feb 15, 2017 11:59:01");
-var dt7 = new Date("Feb 15, 2017 11:59:01");
-var dt8 = new Date("Feb 15, 2017 11:00:05");
-var dt9 = new Date("Feb 14, 2017 19:00:00");
-var dt10 = new Date("Feb 12, 2017 12:00:00");
-var dt11 = new Date("Feb 02, 2017 12:00:00");
-
-// Actualiza fecha de publicación en la lista de articulos
-updateTime('timeLessOneMinute',getDateFormat(get_difference(dt1, dt2)));
-updateTime('timeLessOneHour',getDateFormat(get_difference(dt1, dt3)));
-updateTime('timeLessOneDay',getDateFormat(get_difference(dt1, dt4))); 
-updateTime('timeLessOneWeek',getDateFormat(get_difference(dt1, dt5)));  
-updateTime('timeMoreOneWeek',getDateFormat(get_difference(dt1, dt6)));          
-updateTime('timeLessOneMinute-2',getDateFormat(get_difference(dt1, dt7)));  
-updateTime('timeLessOneHour-2',getDateFormat(get_difference(dt1, dt8)));
-updateTime('timeLessOneDay-2',getDateFormat(get_difference(dt1, dt9)));
-updateTime('timeLessOneWeek-2',getDateFormat(get_difference(dt1, dt10)));
-updateTime('timeMoreOneWeek-2',getDateFormat(get_difference(dt1, dt11)));
-
 
