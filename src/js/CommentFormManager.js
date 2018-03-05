@@ -47,15 +47,7 @@ export default class CommentFormManager extends UIManager {
             }
             
         }
-        if (this.countWords(textareas.val()) >0 && textareas.val() < 120 ) {
-            
-            const errorMessage = "You must enter between 1-120 words!";
-            textareas.focus();
-            this.setErrorHtml(errorMessage);
-            this.setError();
-			return false; 
-			
-		}
+        
         
         // Llegamos aquí, si no hay ningún error
         this.setIdeal(); 
