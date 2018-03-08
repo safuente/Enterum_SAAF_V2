@@ -16,7 +16,7 @@ export default class CommentsListManager extends UIManager {
    
     init() {
         
-        this.loadComments();
+        //this.loadComments();
         let self = this;
         
         this.pubSub.subscribe("new-comment", (topic, comment) => {
@@ -61,24 +61,7 @@ export default class CommentsListManager extends UIManager {
                 this.setEmpty();
             } else {
                 this.renderComments(comments);
-                $(window).on('scroll', function () {
-                    var scrollTop     = $(window).scrollTop(),
-                        elementOffset = $('#comments').offset().top,
-                        distance      = (elementOffset - scrollTop);
-                    var $comments    = $('.comments-list')
-                    console.log(window.innerHeight);
-                    console.log(distance);
-                    if (distance <= 700 && window.innerHeight>=1024) {
-                        $comments.removeClass('loading');
-                        $comments.addClass('ideal');
-                    } 
-                    else if (distance <= 300)  {
-                        $comments.removeClass('loading');
-                        $comments.addClass('ideal');
-                    }
-                    
-                   
-                  }); 
+                
                  
                
                   

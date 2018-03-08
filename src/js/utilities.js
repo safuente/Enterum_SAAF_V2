@@ -1,11 +1,11 @@
-
+var moment = require("moment");
 
 // Calculo diferencia de fechas
 function get_difference(dt2, dt1) {
     let days = ['Sunday','Mon', 'Tue', 'Wed', 'Thursday', 'Friday', 'Saturday'],
     dayDiff= "";
     let diff =(dt2.getTime() - dt1.getTime()) /1000 ;
-        console.log(diff)
+        
         if (diff>86400 && diff<604800){
             dayDiff=days[dt1.getDay()];
             console.log(typeof(dayDiff));
@@ -54,7 +54,7 @@ $( function() {
     //Simulación de fechas para fecha de publicación       
     var dt1 = new Date("Feb 15, 2017 12:00:00");
     var dt2 = new Date("Feb  15, 2017 11:59:55");
-    var dt3 = new Date("Feb 15, 2017 12:05:00");
+    var dt3= new Date("Feb 15, 2017 12:05:00");
     var dt4 = new Date("Feb 14, 2017 13:00:00");
     var dt5 = new Date("Feb 13, 2017 13:00:00");
     var dt6 = new Date("Feb 01, 2017 13:00:00");
@@ -64,12 +64,13 @@ $( function() {
     var dt9 = new Date("Feb 14, 2017 19:00:00");
     var dt10 = new Date("Feb 12, 2017 12:00:00");
     var dt11 = new Date("Feb 02, 2017 12:00:00");
+    
+    
     var ids = $('.publish-date').map(function(index) {
-        var counter = 2;
-        result= updateTime(this.id,getDateFormat(get_difference(dt1, "dt"+counter)));
-        console.log(result)
+        var counter = Number(index)+2;
+        var result=(getDateFormat(get_difference(dt1, eval("dt"+counter))));
         document.getElementById(this.id).innerHTML =result;
-});
+    });
 });
 
 
@@ -127,6 +128,7 @@ $(document).ready(function() {
             $('#word_left').text(120 - words);
         }
     });
-});       
-           
+});   
+
+
 
